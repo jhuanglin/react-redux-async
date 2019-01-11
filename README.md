@@ -1,68 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react-redux-async
+这是自己学习使用React+React-redux搭建的一个小demo，实现了一个简单的todo列表和基本的删除还原操作，以及做了一个简单的路由跳转实验，主要是让自己了解react-redux怎么跟react结合在一起，将整体的状态放在state中。
 
-## Available Scripts
+### 项目安装
+    npm install
+    npm start
+打开[http://localhost:3000](http://localhost:3000) 查看项目.
 
-In the project directory, you can run:
+### 知识点
+- `connect`
+将`container`容器中的数据|方法通过`props`传递到`ui`容器
+- `Provider`
+将全局的`store`传递给各层次组件中，利用`React`的`context`
+- `combineReducers(reducers)`
+合并项目中的`reducers`，生成一个集合`reducer`。
+`combineReducers`本身是一个`higher-order reducer`
+- `createStore(rootReducer, initiateState, enhance)`
+生成全局唯一的一个`store`
+- `middleWare`
+扩展`store`功能的中间件，比如让`action`返回一个函数(可以异步请求数据)，进行`dispatch`的监控等
+- `injectReducers`
+也是一个`higher-order reducer `,可主要是在项目中可以动态注入`reducer`
+-  `compose`
+用于多个函数从左到右的组合，最后合成一个函数，用于`createStore`中的`enhance`中。
+可以将`applyMiddleware`和`redux-extension`合并起来
 
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### 学习来源
+[React-redux中文文档](https://cn.redux.js.org/)
+[React文档](https://react.docschina.org/docs/getting-started.html)
+[React-router](https://react-guide.github.io/react-router-cn/)(react-router已经是4.0了)
+[React-router4.0教程](https://reacttraining.com/react-router/core/guides/philosophy)
