@@ -1,6 +1,6 @@
 import React from 'react'
 import * as d3 from 'd3'
-import './assets/d3_data.css'
+import './assets/d3_data.scss'
 
 class D3Data extends React.Component{
   constructor(props) {
@@ -71,7 +71,7 @@ class D3Data extends React.Component{
 
   render() {
     return (
-      <div id="d3_d"></div>
+      <div id="d3_d" className='d3_data'></div>
     )
   }
 }

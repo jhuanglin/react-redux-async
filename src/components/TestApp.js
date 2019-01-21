@@ -10,7 +10,7 @@ class TestApp extends React.Component{
   render () {
     return (
       <div>
-        <p>{this.props.requestStatus ? '11': 'aa'}</p>
+        <p>{this.props.requestStatus ? 'test': 'false'}</p>
         <h2>hello world</h2>
       </div>
     )
