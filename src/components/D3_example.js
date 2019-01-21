@@ -1,5 +1,5 @@
 import React from 'react'
-import * as d3 from 'd3'
+let d3 = require('d3')
 
 class D3 extends React.Component {
   constructor(props) {
