@@ -1,14 +1,14 @@
 import React from 'react'
 import * as d3 from 'd3'
 
-class D3 extends React.Component{
+class D3 extends React.Component {
   constructor(props) {
     super(props)
     this.svg = null
   }
 
 
-  componentDidMount(){
+  componentDidMount() {
     // this.textUE()
     // this.drawS()
     // this.drawV()
@@ -29,7 +29,7 @@ class D3 extends React.Component{
     update.text(d => 'update ' + d)
     // exit
     let exit = enter.append('p')
-      .text(d => 'enter ' +d)
+      .text(d => 'enter ' + d)
     exit.data(de).exit().remove()
     // ----------update exit enter--------------
   }
@@ -113,8 +113,8 @@ class D3 extends React.Component{
     // this.drawGsRT(svg, xScale, yScale, dataset, padding, width, height)
     // this.drawAniGsRT(svg, xScale, yScale, dataset, padding, width, height)
     svg.append('g')
-    .attr('transform', `translate(${padding.left}, ${height - padding.bottom})`)
-    .call(xAxis)
+      .attr('transform', `translate(${padding.left}, ${height - padding.bottom})`)
+      .call(xAxis)
 
     svg.append('g')
       .attr('transform', `translate(${padding.left}, ${padding.top})`)
@@ -150,50 +150,50 @@ class D3 extends React.Component{
   drawSingRT(svg, xScale, yScale, dataset, padding, width, height) {
     const skipL = 4
     const rects = svg.selectAll('rect')
-    .data(dataset)
-    .enter()
-    .append('rect')
-    .attr('transform', `translate(${padding.left}, ${padding.top})`)
-    .attr('class', 'd3_rect')
-    .attr('x', (d, i) => {
-      return xScale(i) + skipL / 2
-    })
-    .attr('y', (d) => {
-      return yScale(d)
-    })
-    .attr('width', (d) => {
-      return xScale.bandwidth() - skipL
-    })
-    .attr('height', d => {
-      return height - padding.top - padding.bottom - yScale(d)
-    })
-    .attr('fill', 'steelblue')
+      .data(dataset)
+      .enter()
+      .append('rect')
+      .attr('transform', `translate(${padding.left}, ${padding.top})`)
+      .attr('class', 'd3_rect')
+      .attr('x', (d, i) => {
+        return xScale(i) + skipL / 2
+      })
+      .attr('y', (d) => {
+        return yScale(d)
+      })
+      .attr('width', (d) => {
+        return xScale.bandwidth() - skipL
+      })
+      .attr('height', d => {
+        return height - padding.top - padding.bottom - yScale(d)
+      })
+      .attr('fill', 'steelblue')
 
-  const texts = svg.selectAll('text')
-    .data(dataset)
-    .enter()
-    .append('text')
-    .attr('transform', `translate(${padding.left}, ${padding.top})`)
-    .attr('x', (d, i) => {
-      return xScale(i) + skipL / 2
-    })
-    .attr('y', d => {
-      return yScale(d)
-    })
-    .attr('dx', () => {
-      return (xScale.bandwidth() - skipL) / 4
-    })
-    .attr('dy', () => {
-      return 20
-    })
-    .text(d => d)
+    const texts = svg.selectAll('text')
+      .data(dataset)
+      .enter()
+      .append('text')
+      .attr('transform', `translate(${padding.left}, ${padding.top})`)
+      .attr('x', (d, i) => {
+        return xScale(i) + skipL / 2
+      })
+      .attr('y', d => {
+        return yScale(d)
+      })
+      .attr('dx', () => {
+        return (xScale.bandwidth() - skipL) / 4
+      })
+      .attr('dy', () => {
+        return 20
+      })
+      .text(d => d)
 
-    rects.on('mouseover', function(d, i) {
+    rects.on('mouseover', function (d, i) {
       d3.select(this)
         .transition()
         .duration(200)
         .attr('fill', 'yellow')
-    }).on('mouseout', function(d, i) {
+    }).on('mouseout', function (d, i) {
       d3.select(this)
         .transition()
         .duration(200)
@@ -204,72 +204,72 @@ class D3 extends React.Component{
   drawAniGsRT(svg, xScale, yScale, dataset, padding, width, height) {
     const skipL = 4
     const rects = svg.selectAll('rect')
-    .data(dataset)
-    .enter()
-    .append('rect')
-    .attr('transform', `translate(${padding.left}, ${padding.top})`)
-    .attr('class', 'd3_rect')
-    .attr('x', (d, i) => {
-      return xScale(i) + skipL / 2
-    })
-    .attr('y', (d) => {
-      const min = yScale.domain()[0]
-      return yScale(min)
-    })
-    .attr('width', (d) => {
-      return xScale.bandwidth() - skipL
-    })
-    .attr('height', d => 0)
-    .attr('fill', 'steelblue')
-    .transition()
-    .delay((d, i) => i * 200)
-    .duration(2000)
-    .ease(d3.easeBounce)
-    .attr('height', d => {
-      return height - padding.top - padding.bottom - yScale(d)
-    })
-    .attr('y', (d) => {
-      return yScale(d)
-    })
+      .data(dataset)
+      .enter()
+      .append('rect')
+      .attr('transform', `translate(${padding.left}, ${padding.top})`)
+      .attr('class', 'd3_rect')
+      .attr('x', (d, i) => {
+        return xScale(i) + skipL / 2
+      })
+      .attr('y', (d) => {
+        const min = yScale.domain()[0]
+        return yScale(min)
+      })
+      .attr('width', (d) => {
+        return xScale.bandwidth() - skipL
+      })
+      .attr('height', d => 0)
+      .attr('fill', 'steelblue')
+      .transition()
+      .delay((d, i) => i * 200)
+      .duration(2000)
+      .ease(d3.easeBounce)
+      .attr('height', d => {
+        return height - padding.top - padding.bottom - yScale(d)
+      })
+      .attr('y', (d) => {
+        return yScale(d)
+      })
 
-  const texts = svg.selectAll('text')
-    .data(dataset)
-    .enter()
-    .append('text')
-    .attr('transform', `translate(${padding.left}, ${padding.top})`)
-    .attr('x', (d, i) => {
-      return xScale(i) + skipL / 2
-    })
-    .attr('y', d => {
-      const min = d3.min(yScale.domain())
-      return yScale(min)
-    })
-    .attr('dx', () => {
-      return (xScale.bandwidth() - skipL) / 4
-    })
-    .attr('dy', () => {
-      return 20
-    })
-    .text(d => d)
-    .attr('fill', 'white')
-    .transition()
-    .delay((d, i) => i * 200)
-    .duration(2000)
-    .ease(d3.easeBounce)
-    .attr('y', d => yScale(d))
+    const texts = svg.selectAll('text')
+      .data(dataset)
+      .enter()
+      .append('text')
+      .attr('transform', `translate(${padding.left}, ${padding.top})`)
+      .attr('x', (d, i) => {
+        return xScale(i) + skipL / 2
+      })
+      .attr('y', d => {
+        const min = d3.min(yScale.domain())
+        return yScale(min)
+      })
+      .attr('dx', () => {
+        return (xScale.bandwidth() - skipL) / 4
+      })
+      .attr('dy', () => {
+        return 20
+      })
+      .text(d => d)
+      .attr('fill', 'white')
+      .transition()
+      .delay((d, i) => i * 200)
+      .duration(2000)
+      .ease(d3.easeBounce)
+      .attr('y', d => yScale(d))
   }
 
   drawCircles() {
     let svg = d3.select('#d3')
-    .append('svg')
-    .attr('width', 600)
-    .attr('height', 600)
+      .append('svg')
+      .attr('width', 600)
+      .attr('height', 600)
     let [circle1, circle2, circle3] = d3.range(3).map(i => {
       return svg.append('circle')
-      .attr('cx', 100)
-      .attr('cy', (i + 1) * 100)
-      .attr('r', 45)
-      .attr('fill', 'green')
+        .attr('cx', 100)
+        .attr('cy', (i + 1) * 100)
+        .attr('r', 45)
+        .attr('fill', 'green')
     })
 
     circle1.transition()
@@ -282,7 +282,7 @@ class D3 extends React.Component{
       .attr('fill', 'red')
 
     circle3
-    .transition()
+      .transition()
       .delay(2000)
       .duration(3000)
       .ease(d3.easeBounce)
@@ -340,14 +340,14 @@ class D3 extends React.Component{
   drawN() {
     const width = 400
     const height = 400
-    let nodes = [ { name: "桂林" }, { name: "广州" },
+    let nodes = [{ name: "桂林" }, { name: "广州" },
     { name: "厦门" }, { name: "杭州" },
     { name: "上海" }, { name: "青岛" },
-    { name: "天津" } ];
+    { name: "天津" }];
 
-let links = [ { source : 0 , target: 1 } , { source : 0 , target: 2 } ,
-     { source : 0 , target: 3 } , { source : 1 , target: 4 } ,
-     { source : 1 , target: 5 } , { source : 1 , target: 6 } ];
+    let links = [{ source: 0, target: 1 }, { source: 0, target: 2 },
+    { source: 0, target: 3 }, { source: 1, target: 4 },
+    { source: 1, target: 5 }, { source: 1, target: 6 }];
 
     let svg = d3.select('#d3')
       .append('svg')
@@ -355,17 +355,21 @@ let links = [ { source : 0 , target: 1 } , { source : 0 , target: 2 } ,
       .attr('height', height)
 
     let simulation = d3.forceSimulation()
-      .force('link', d3.forceLink())
-      .force('charge', d3.forceManyBody())
-      .force("center", d3.forceCenter(width / 2, height / 2))
-
-    console.log(simulation)
+      .force('link', d3.forceLink()) //连接线
+      .force('charge', d3.forceManyBody().strength(-100)) // 电荷力模型 正值为引力 负值为斥力
+      .force("center", d3.forceCenter(width / 2, height / 2)) // 中间力
+      .force('collide', d3.forceCollide(15).strength(.7)) // 碰撞力
+      .velocityDecay(.2)
+      // .alphaMin(0.0001)
+      // .alphaDecay(0.01)
 
     simulation.nodes(nodes)
       .on('tick', ticked)
     simulation.force('link')
       .links(links)
       .distance(100)
+
+    console.log(links)
 
     var link = svg.append('g')
       .attr('class', 'links')
@@ -376,16 +380,16 @@ let links = [ { source : 0 , target: 1 } , { source : 0 , target: 2 } ,
       .attr('stroke', '#aaa')
       .attr('stroke-width', 2)
 
+    var link_text = svg.append('g')
+      .attr('class', 'link_text')
+      .selectAll('text')
+      .data(links)
+      .enter()
+      .append('text')
+      .attr('dx', 10)
+      .attr('dy', 10)
+      .text(d => d.index)
 
-    // var node = svg.selectAll('g')
-    //   .data(nodes)
-    //   .enter()
-    //   .append('g')
-    //   .call(d3.drag()
-    //     .on('start', dragstarted)
-    //     .on('drag', dragged)
-    //     .on('end', dragended))
-    //   node
     var node = svg.append('g')
       .attr('class', 'nodes')
       .selectAll('circle')
@@ -396,9 +400,10 @@ let links = [ { source : 0 , target: 1 } , { source : 0 , target: 2 } ,
       .attr('fill', (d, i) => {
         return d3.schemeCategory10[i]
       })
-
-      console.log(nodes)
-
+      .call(d3.drag()
+        .on('start', dragstarted)
+        .on('drag', dragged)
+        .on('end', dragended))
 
     var text = svg.append('g')
       .attr('class', 'texts')
@@ -406,47 +411,56 @@ let links = [ { source : 0 , target: 1 } , { source : 0 , target: 2 } ,
       .data(nodes)
       .enter()
       .append('text')
-      .attr('x', (d) => {
-        console.log(d)
-        return d.x
-      })
-      .attr('y', (d) => d.y)
       .attr('dx', 20)
       .attr('dy', 8)
       .attr('fill', 'black')
       .text(d => d.name)
 
-      function dragstarted(d) {
-        if (!d3.event.active) simulation.alphaTarget(.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-      }
+    function dragstarted(d) {
+      if (!d3.event.active) simulation.alphaTarget(.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
 
-      function dragged(d) {
-        d.fx = d3.event.x;
-        d.fy = d3.event.y;
-      }
+    function dragged(d) {
+      d.fx = d3.event.x;
+      d.fy = d3.event.y;
+    }
 
-      function dragended(d) {
-        if (!d3.event.active) simulation.alphaTarget(0);
-        d.fx = null;
-        d.fy = null;
-      }
-      function ticked() {
-        link
-            .attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
+    function dragended(d) {
+      if (!d3.event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+    function ticked() {
+      link
+        .attr("x1", function (d) { return d.source.x; })
+        .attr("y1", function (d) { return d.source.y; })
+        .attr("x2", function (d) { return d.target.x; })
+        .attr("y2", function (d) { return d.target.y; });
 
-        node
-            .attr("cx", function(d) { return d.x; })
-            .attr("cy", function(d) { return d.y; });
-      }
+      node
+        .attr("cx", function (d) { return d.x; })
+        .attr("cy", function (d) { return d.y; });
+
+      text
+        .attr('x', d => d.x)
+        .attr('y', d => d.y)
+
+      link_text
+        .attr('x', d=> {
+          let x_d = (d.source.x + d.target.x) / 2
+          return x_d
+        })
+        .attr('y', d => {
+          let y_d = (d.source.y + d.target.y) / 2
+          return y_d
+        })
+    }
 
 
   }
-  render () {
+  render() {
     return (
       <div id="d3">
         {/* hello */}
