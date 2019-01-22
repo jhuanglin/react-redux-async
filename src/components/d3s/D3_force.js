@@ -62,14 +62,13 @@ class D3Force extends React.Component {
       .attr('height', height)
       .on('click', this.getZoom)
 
+    this.addArrow()
     let simulation = d3.forceSimulation()
       .force('link', d3.forceLink()) //连接线
       .force('charge', d3.forceManyBody().strength(-100)) // 电荷力模型 正值为引力 负值为斥力
       .force("center", d3.forceCenter(width / 2, height / 2)) // 中间力
       .force('collide', d3.forceCollide(15).strength(.7)) // 碰撞力
       .velocityDecay(.2)
-      // .alphaMin(0.0001)
-      // .alphaDecay(0.01)
 
     simulation.nodes(nodes)
       .on('tick', ticked)
@@ -88,6 +87,7 @@ class D3Force extends React.Component {
       .append('line')
       .attr('stroke', '#aaa')
       .attr('stroke-width', 2)
+      .attr('marker-end', 'url(#arrow)')
 
     var link_text = g.append('g')
       .attr('class', 'link_text')
@@ -170,6 +170,28 @@ class D3Force extends React.Component {
 
 
   }
+
+  addArrow() {
+    console.log(this.svg)
+    let marker = this.svg.append('defs')
+      .append('marker')
+      .attr('id', 'arrow')
+      .attr('markerUnits', 'userSpaceOnUse')
+      .attr('viewBox', '0, 0, 6, 6')
+      .attr('markerWidth', '12')
+      .attr('markerHeight', '12')
+      .attr('refX', '12')
+      .attr('refY', '3')
+      .attr('orient', 'auto')
+
+    const ARROW_PATH = 'M 0,0 L6, 3, L0, 6'
+    marker.append('path')
+      .attr('d', ARROW_PATH)
+      .attr('stroke', '#aaa')
+      .attr('stroke-width', '1')
+      .attr('fill', 'none')
+  }
+
   render() {
     return (
       <div id="d3">
