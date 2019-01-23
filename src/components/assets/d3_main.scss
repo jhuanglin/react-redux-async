@@ -1,0 +1,22 @@
+.nav{
+  display: flex;
+  // justify-content: space-around;
+  flex-wrap: wrap;
+  li{
+    min-width: 30px;
+    // list-style: none;
+    margin: 10px 20px;
+  }
+  // display: inline-block;
+}
+
+.normal{
+  color: black;
+  text-decoration: none;
+}
+
+.active {
+  color: steelblue;
+  font-weight: bold;
+  text-decoration: none;
+}

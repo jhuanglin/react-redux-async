@@ -7,6 +7,43 @@ import D3force from './d3s/D3_force'
 import D3forcecanvas from './d3s/D3_force_canvas'
 import D3AddNode from './d3s/D3_force_add_node'
 import D3Tree from './d3s/D3_tree'
+import D3Tree1 from './d3s/D3_tree_1'
+import './assets/d3_main.scss'
+const routes = [
+  {
+    path: '/d3/d3_line',
+    component: D3Line,
+    name: 'line'
+  },{
+    path: '/d3/d3_pie',
+    component: D3Pie,
+    name: 'pie'
+  },{
+    path: '/d3/d3_circle',
+    component: D3Circle,
+    name: 'circle'
+  },{
+    path: '/d3/d3_force',
+    component: D3force,
+    name: 'force'
+  },{
+    path: '/d3/d3_by_canvas',
+    component: D3forcecanvas,
+    name: 'force_bycanvas'
+  },{
+    path: '/d3/d3_force_add_node',
+    component: D3AddNode,
+    name: 'force_add_node'
+  },{
+    path: '/d3/d3_tree',
+    component: D3Tree,
+    name: 'tree'
+  },{
+    path: '/d3/d3_tree_1',
+    component: D3Tree1,
+    name: 'tree_2'
+  }
+]
 
 class D3 extends React.Component{
 
@@ -14,40 +51,31 @@ class D3 extends React.Component{
     return (
       <Router>
         <div>
-          <ul>
-            <li>
-              <NavLink to="/d3/d3_line">line</NavLink>
-            </li>
-            <li>
-              <NavLink to="/d3/d3_pie">pie</NavLink>
-            </li>
-            <li>
-              <NavLink to="/d3/d3_circle">circle</NavLink>
-            </li>
-            <li>
-              <NavLink to="/d3/d3_force">force</NavLink>
-            </li>
-            <li>
-              <NavLink to="/d3/d3_force_canvas">force_by canvas</NavLink>
-            </li>
-            <li>
-              <NavLink to="/d3/d3_force_add_node">force_添加节点</NavLink>
-            </li>
-            <li>
-              <NavLink to="/d3/d3_tree">tree</NavLink>
-            </li>
+          <ul className='nav'>
+            {
+              routes.map((route, i) => (
+                <li key={i}>
+                  <NavLink className='normal' activeClassName="active" to={route.path}>{ route.name }</NavLink>
+                </li>
+              ))
+            }
           </ul>
-          <Route path="/d3/d3_line" component={D3Line}></Route>
-          <Route path="/d3/d3_pie" component={D3Pie}></Route>
-          <Route path="/d3/d3_circle" component={D3Circle}></Route>
-          <Route path="/d3/d3_force" component={D3force}></Route>
-          <Route path="/d3/d3_force_canvas" component={D3forcecanvas}></Route>
-          <Route path="/d3/d3_force_add_node" component={D3AddNode}></Route>
-          <Route path="/d3/d3_tree" component={D3Tree}></Route>
+          {routes.map((route, i) => (
+            <RoutesWithConfig key={i} {...route}></RoutesWithConfig>
+          ))}
         </div>
       </Router>
     )
   }
+}
+
+function RoutesWithConfig (route) {
+  return (
+    <Route
+      path = {route.path}
+      component = {route.component}
+    ></Route>
+  )
 }
 
 export default D3
