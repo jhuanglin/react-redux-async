@@ -6,6 +6,7 @@ import D3Circle from './d3s/D3_circle'
 import D3force from './d3s/D3_force'
 import D3forcecanvas from './d3s/D3_force_canvas'
 import D3AddNode from './d3s/D3_force_add_node'
+import D3Tree from './d3s/D3_tree'
 
 class D3 extends React.Component{
 
@@ -32,6 +33,9 @@ class D3 extends React.Component{
             <li>
               <NavLink to="/d3/d3_force_add_node">force_添加节点</NavLink>
             </li>
+            <li>
+              <NavLink to="/d3/d3_tree">tree</NavLink>
+            </li>
           </ul>
           <Route path="/d3/d3_line" component={D3Line}></Route>
           <Route path="/d3/d3_pie" component={D3Pie}></Route>
@@ -39,6 +43,7 @@ class D3 extends React.Component{
           <Route path="/d3/d3_force" component={D3force}></Route>
           <Route path="/d3/d3_force_canvas" component={D3forcecanvas}></Route>
           <Route path="/d3/d3_force_add_node" component={D3AddNode}></Route>
+          <Route path="/d3/d3_tree" component={D3Tree}></Route>
         </div>
       </Router>
     )

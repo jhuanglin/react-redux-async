@@ -51,7 +51,7 @@ class D3AddNode extends React.Component{
       .force("x", d3.forceX())
       .force("y", d3.forceY())
       .on('tick', ticked)
-    console.log(links)
+    // console.log(links)
 
     this.cursor = this.svg.append('circle')
       .attr('r', 30)

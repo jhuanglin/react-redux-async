@@ -14,7 +14,7 @@ class D3Force extends React.Component {
 
   zoomed(d) {
     const transform = d3.event.transform
-    console.log(transform)
+    // console.log(transform)
     d3.select(this).attr('transform', `translate(${transform.x} , ${transform.y}) scale(${transform.k})`)
   }
 
@@ -172,12 +172,12 @@ class D3Force extends React.Component {
   }
 
   addArrow() {
-    console.log(this.svg)
+    // console.log(this.svg)
     let marker = this.svg.append('defs')
       .append('marker')
       .attr('id', 'arrow')
-      .attr('markerUnits', 'userSpaceOnUse')
-      .attr('viewBox', '0, 0, 6, 6')
+      .attr('markerUnits', 'strokeWidth')
+      .attr('viewBox', '0, 0, 12, 12')
       .attr('markerWidth', '12')
       .attr('markerHeight', '12')
       .attr('refX', '12')

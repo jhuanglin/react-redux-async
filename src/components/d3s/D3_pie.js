@@ -27,14 +27,14 @@ class D3Pie extends React.Component{
 
     let pie = d3.pie()
     let pieData = pie(dataset)
-    console.log(pieData)
+    // console.log(pieData)
 
     let arc = d3.arc()
       .innerRadius(iR)
       .outerRadius(oR)
-    console.log(arc)
+    // console.log(arc)
 
-    console.log(d3.schemeCategory10)
+    // console.log(d3.schemeCategory10)
     let arcs = svg.selectAll('g')
       .data(pieData)
       .enter()
