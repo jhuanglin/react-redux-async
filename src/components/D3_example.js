@@ -1,5 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, NavLink, Switch} from 'react-router-dom'
+import './assets/d3_main.scss'
+
 import D3Line from './d3s/D3_line'
 import D3Pie from './d3s/D3_pie'
 import D3Circle from './d3s/D3_circle'
@@ -7,8 +9,8 @@ import D3force from './d3s/D3_force'
 import D3forcecanvas from './d3s/D3_force_canvas'
 import D3AddNode from './d3s/D3_force_add_node'
 import D3Tree from './d3s/D3_tree'
-import D3Tree1 from './d3s/D3_tree_1'
-import './assets/d3_main.scss'
+import D3Cluster from './d3s/D3_cluster';
+
 const routes = [
   {
     path: '/d3/d3_line',
@@ -39,9 +41,9 @@ const routes = [
     component: D3Tree,
     name: 'tree'
   },{
-    path: '/d3/d3_tree_1',
-    component: D3Tree1,
-    name: 'tree_2'
+    path: '/d3/d3_cluster',
+    component: D3Cluster,
+    name: 'cluster'
   }
 ]
 
