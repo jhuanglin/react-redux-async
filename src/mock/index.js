@@ -14,3 +14,8 @@ export const mockData = {
     }
   ]
 }
+
+function a () {
+  console.log(911)
+}
+export default a

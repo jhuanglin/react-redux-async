@@ -2,6 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import configStore from './store'
 import Root from './components/Root'
+import a from './mock'
+
+var q = 1
+if(q) {
+  console.log(a)
+}
 // import * as d3 from 'd3'
 
 // window.d3 = require('d3')
