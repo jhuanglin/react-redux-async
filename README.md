@@ -1,9 +1,12 @@
 # react-redux-async
 这是自己学习使用React+React-redux搭建的一个小demo，实现了一个简单的todo列表和基本的删除还原操作，以及做了一个简单的路由跳转实验，主要是让自己了解react-redux怎么跟react结合在一起，将整体的状态放在state中。
 
+### 后续
+本项目后续逐渐添加自己学习D3的各种demo，目前有柱状图、饼图、环状图、力向导图、树状图等。
+
 ### 项目安装
     npm install
-    npm start
+    yarn start
 打开[http://localhost:3000](http://localhost:3000)查看项目.
 
 ### 知识点
@@ -25,7 +28,7 @@
 可以将`applyMiddleware`和`redux-extension`合并起来
 
 ### 学习来源
-[React-redux中文文档](https://cn.redux.js.org/)  
-[React文档](https://react.docschina.org/docs/getting-started.html)   
-[React-router](https://react-guide.github.io/react-router-cn/)(react-router已经是4.0了)  
+[React-redux中文文档](https://cn.redux.js.org/)
+[React文档](https://react.docschina.org/docs/getting-started.html)
+[React-router](https://react-guide.github.io/react-router-cn/)(react-router已经是4.0了)
 [React-router4.0教程](https://reacttraining.com/react-router/core/guides/philosophy)
