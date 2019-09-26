@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>-people</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 19 0 19 21 0 21"></polygon>
+    </defs>
+    <g id="UI-规范" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon" transform="translate(-220.000000, -520.000000)">
+            <g id="zhanghao-(1)-copy-4" transform="translate(222.000000, 521.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M9.2821545,11.0624956 C12.4811966,11.0624956 15.0847131,8.58110684 15.0847131,5.53088167 C15.0847131,2.48112512 12.4813171,0 9.2821545,0 C6.08311238,0 3.48016806,2.48147657 3.48016806,5.53088167 C3.48016806,8.58063823 6.08323283,11.0624956 9.2821545,11.0624956 Z M7.05726675,12.0749905 C3.01674387,12.0749905 0,14.7251088 0,18.5739954 L0,18.9883949 C0,21 3.2332795,21 7.32568541,21 L11.673351,21 C15.6047479,21 19,21 19,18.9883949 L19,18.5739954 C19,14.7258117 15.9826539,12.0749905 11.9428236,12.0749905 L7.05702585,12.0749905 L7.05726675,12.0749905 Z" id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

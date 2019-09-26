@@ -1,0 +1,16 @@
+.draw_wrapper {
+  position: fixed;
+  top: 150px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: grey;
+  .graph_wrapper {
+    height: 100%;
+    width: 100%;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+  }
+}
+
